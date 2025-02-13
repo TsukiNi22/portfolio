@@ -1,0 +1,23 @@
+section[type="presentation"] {
+    position: relative;
+    top: 0em;
+}
+
+.presentation_title {
+    position: relative;
+    top: 2em;
+    left: 7.5em;
+    font-size: 2.5em;
+    color: #fff;
+    z-index: 51;
+}
+
+.presentation_text {
+    position: relative;
+    top: 4em;
+    left: 17.5em;
+    font-size: 1.5em;
+    color: #fff;
+    text-align: left;
+    z-index: 51;
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- permet d'ajusté automatiquement la taille de la page a celle de l'écran -->
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/presentation.css">
+    <link rel="stylesheet" href="css/github.css">
+    <link rel="stylesheet" href="css/contact.css">
+</head>
+
+<body>
+
+    <section type="header">
+        <h1 class="header_title">Portfolio</h1>
+        <div class="header_background_container">
+            <img class="header_background" src="picture/portfolio_background.png" alt="Background of the header"/>
+        </div>
+        <nav class="navigation">
+            <button class="btn_nav" onclick="scrollToPercentage(10)"><u>Presentation</u></button>
+            <button class="btn_nav" onclick="scrollToPercentage(10)"><u>Projet</u></button>
+            <button class="btn_nav" onclick="scrollToPercentage(10)"><u>Asso</u></button>
+            <button class="btn_nav" onclick="scrollToPercentage(10)"><u>Group</u></button>
+            <button class="btn_nav" onclick="scrollToPercentage(100)"><u>Contact</u></button>
+        </nav>
+        <script>
+            function scrollToPercentage(percentage) {
+                const Height = document.documentElement.scrollHeight - window.innerHeight;
+                const scrollTo = (percentage / 100) * Height;
+                window.scrollTo({top: scrollTo, behavior: "smooth"});
+            }
+        </script>
+    </section>
+    <section type="presentation">
+        <h1 class="presentation_title">Qui suis je?</h1>
+        <blockquote class="presentation_text">
+                Étant passionné par l’algorithmie et la recherche mathématique,
+            <br>actuellement étudiant à Epitech.Lorem ipsum dolor sit amet. Cras suscipit tellus vitae laoreet rutrum.
+            <br>Cras commodo et mi vitae venenatis. Proin nec consequat libero. Etiam eu pulvinar urna, nec tempor dolor.
+            <br>Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut id leo nec arcu mollis porttitor.
+            <br>Etiam mollis, dolor ac varius semper, mi dui lobortis diam, Morbi in vestibulum tortor.
+            <br>Suspendisse potenti. Integer vitae urna dui. Nunc non accumsan diam.
+        </blockquote>
+    </section>
+    <section type="github">
+        <div class="bar"></div>
+        <div class="carousel_container">
+            <button class="arrow left" onclick="prevSlide()">◄</button>
+            <div class="carousel">
+                <div class="carousel_slide">
+                    <h2>Slide 1</h2>
+                    <p>Contenu de la deuxième boîte</p>
+                    <img src="image1.jpg" alt="Image 1">
+                </div>
+                <div class="carousel_slide">
+                    <h2>Slide 2</h2>
+                    <p>Contenu de la deuxième boîte</p>
+                    <img src="image2.jpg" alt="Image 2">
+                </div>
+                <div class="carousel_slide">
+                    <h2>Slide 3</h2>
+                    <p>Contenu de la deuxième boîte</p>
+                    <img src="image3.jpg" alt="Image 3">
+                </div>
+            </div>
+            <button class="arrow right" onclick="nextSlide()">►</button>
+        </div>
+        <div class="bar"></div>
+        <script>
+            let currentIndex = 0;
+
+            function updateCarousel() {
+                document.querySelector(".carousel").style.transform = `translateX(-${currentIndex * 100}vw)`;
+            }
+
+            function nextSlide() {
+                if (currentIndex < 2)
+                    currentIndex++;
+                else
+                    currentIndex = 0;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                if (currentIndex > 0)
+                    currentIndex--;
+                else
+                    currentIndex = 2;
+                updateCarousel();
+            }
+        </script>
+    </section>
+
+    <section type="asso">
+    </section>
+
+    <section type="group">
+    </section>
+
+    <section type="contact">
+        <div class="contact_container">
+            <a class="contact_text" style="left: 2.5vw;" href="https://instagram.com/tsukini_22">Instagram</a>
+            <a class="contact_text" style="left: 12.5vw;" href="https://github.com/TsukiNi22">Github</a>
+            <a class="contact_text" style="left: 20vw;" href="https://linkedin.com/in/mat-dumoulin">Linkedin</a>
+            <h2 class="contact_text" style="left: 65vw;" id="mail" onclick="copyText('mail')">mathias.dumoulin@epitech.eu</h2>
+            <h2 class="contact_text" style="left: 87.5vw;" id="tel" onclick="copyText('tel')">+33 6 58 51 02 16</h2>
+        </div>
+        <script>
+            function copyText(id) {
+                let text = document.getElementById(id).innerText;
+                navigator.clipboard.writeText(text)
+                alert("Texte copié !");
+            }
+        </script>
+    </section>
+</body>
+
+</html>

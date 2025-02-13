@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #000;
+}
+
+section[type="header"] {
+    top: 0;
+}
+
+.header_title {
+    right: .5em;
+    font-size: 5em;
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    z-index: 51;
+}
+
+.header_background_container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.header_background_container::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%),
+                linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+.header_background {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    position: absolute;
+    z-index: 0;
+}
+
+.navigation {
+    position: absolute;
+    top: 7.5em;
+    right: 1.5em;
+    display: flex;
+    flex-direction: column;
+    z-index: 50;
+}
+
+.btn_nav {
+    width: 200px;
+    text-align: right;
+    background: transparent;
+    border: transparent;
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    transition: .5s;
+}
+
+.btn_nav:hover::before {
+    content: "➤ ";
+}
+
+.btn_nav:hover {
+    font-size: 1.35em;
+}
